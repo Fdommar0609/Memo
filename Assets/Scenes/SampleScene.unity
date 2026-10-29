@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 181010309}
   - component: {fileID: 181010311}
   - component: {fileID: 181010310}
-  - component: {fileID: 181010312}
   m_Layer: 5
   m_Name: PanelUIP01
   m_TagString: Untagged
@@ -171,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.9607843, b: 0.07936708, a: 1}
+  m_Color: {r: 1, g: 0.5896226, b: 0.6055282, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -196,21 +195,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181010308}
   m_CullTransparentMesh: 1
---- !u!114 &181010312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 181010308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b470859eeef7f3942a4d3ced3ab614b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  statusText: {fileID: 231098023}
-  P01: {fileID: 806186784}
-  P02: {fileID: 2091745472}
 --- !u!1 &231098021
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +252,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Turno Actual
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -334,7 +318,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -115.9884, w: 0}
+  m_margin: {x: 0, y: 0, z: -166.14258, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -359,7 +343,6 @@ GameObject:
   - component: {fileID: 255980758}
   - component: {fileID: 255980761}
   - component: {fileID: 255980760}
-  - component: {fileID: 255980759}
   m_Layer: 5
   m_Name: PanelUIP02
   m_TagString: Untagged
@@ -387,21 +370,6 @@ RectTransform:
   m_AnchoredPosition: {x: 560, y: -540}
   m_SizeDelta: {x: -1120, y: 360}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &255980759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255980757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b470859eeef7f3942a4d3ced3ab614b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  statusText: {fileID: 231098023}
-  P01: {fileID: 806186784}
-  P02: {fileID: 2091745472}
 --- !u!114 &255980760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,7 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.9607843, b: 0.07936708, a: 1}
+  m_Color: {r: 0.3066038, g: 1, b: 0.5882203, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -659,7 +627,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 583910460}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 796043654}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OnClickReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &583910460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,7 +773,6 @@ GameObject:
   - component: {fileID: 648841766}
   - component: {fileID: 648841769}
   - component: {fileID: 648841768}
-  - component: {fileID: 648841767}
   m_Layer: 5
   m_Name: PanelUITurn
   m_TagString: Untagged
@@ -822,21 +801,6 @@ RectTransform:
   m_AnchoredPosition: {x: 560, y: -900}
   m_SizeDelta: {x: -1120, y: 360}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &648841767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648841765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b470859eeef7f3942a4d3ced3ab614b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  statusText: {fileID: 231098023}
-  P01: {fileID: 806186784}
-  P02: {fileID: 2091745472}
 --- !u!114 &648841768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -850,7 +814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.9607843, b: 0.07936708, a: 1}
+  m_Color: {r: 0.97168005, g: 0.5882353, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -887,6 +851,7 @@ GameObject:
   - component: {fileID: 796043652}
   - component: {fileID: 796043651}
   - component: {fileID: 796043650}
+  - component: {fileID: 796043654}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -980,6 +945,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &796043654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796043649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b470859eeef7f3942a4d3ced3ab614b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  statusText: {fileID: 231098023}
+  P01: {fileID: 806186784}
+  P02: {fileID: 2091745472}
 --- !u!1 &806186783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,7 +998,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'Jugador 1:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1084,7 +1064,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -160.59924, w: 0}
+  m_margin: {x: 0, y: 0, z: -151.87683, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1175,8 +1155,8 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 360, y: 360}
-  m_Spacing: {x: 10, y: 0}
+  m_CellSize: {x: 200, y: 201}
+  m_Spacing: {x: 15, y: 15}
   m_Constraint: 1
   m_ConstraintCount: 2
 --- !u!114 &866811637
@@ -1192,7 +1172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.9432941, g: 0.9433962, b: 0.6096476, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1442,6 +1422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1984557686}
+  - component: {fileID: 1984557687}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1464,6 +1445,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1984557687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984557685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c90a53cf5b1162a4eabf8f13b4712aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  contenedorCartas: {fileID: 866811635}
+  cartaPrefab: {fileID: 9002774899750899328, guid: 3c5acb2d4782619499b0df4dc1a95c87, type: 3}
+  spritesFrontales:
+  - {fileID: -2322131890765004172, guid: b8c91a46f11e9e7429c0d7ecd0b462b5, type: 3}
+  - {fileID: -1789811908115254431, guid: 76aebfcbe3024f346895d2759cffd1f6, type: 3}
+  - {fileID: 9074830600662005270, guid: 687c6110da0345842850eba45413f21b, type: 3}
+  - {fileID: -8770246151223524133, guid: 4e765ef958ca0c34cb21895371dac0d5, type: 3}
+  - {fileID: -1509323640064076541, guid: d576d22cc5185884991df1c6d563c8a8, type: 3}
+  - {fileID: 6868079115532123385, guid: 278128d4452288c43b50bfac89121455, type: 3}
+  - {fileID: -1083898261215407892, guid: aa8fa7781c92f4b428d03a0cfc62e57b, type: 3}
+  - {fileID: 8643397128651135938, guid: 568072a1e80b4014aa0072a0281b51e1, type: 3}
+  - {fileID: 797985950028089827, guid: ce11925714da8954dbd0d5bcb32c0e04, type: 3}
+  - {fileID: 5170488960404389481, guid: fc1ea3313ee55e742abe2d35440b70f5, type: 3}
+  - {fileID: -6782000859437599046, guid: 401f7d7956961884092e208e600cde27, type: 3}
+  - {fileID: 7910494276231884929, guid: 5501adc7eb1edeb4ea574a4ba0ab490b, type: 3}
+  - {fileID: -6516572600515932451, guid: a1be684fe76dd144a92ac5680f4ceede, type: 3}
+  - {fileID: 8269482728541417561, guid: b90dec83ad656334bbb4b42132f6207a, type: 3}
+  - {fileID: -6858732020274940862, guid: 3f37f775345416a4796e13d8fa2cf503, type: 3}
+  - {fileID: -7745107010577397002, guid: aa9852e21370f014a86a88c0db247db7, type: 3}
+  filas: 4
+  columnas: 3
 --- !u!1 &2091745471
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,7 +1516,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'Jugador 2:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

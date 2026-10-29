@@ -1,30 +1,36 @@
 using TMPro;
 using UnityEngine;
 
+
 public class UIManager : MonoBehaviour
 {
-    
     [SerializeField] private TextMeshProUGUI statusText;
     [SerializeField] private TextMeshProUGUI P01;
     [SerializeField] private TextMeshProUGUI P02;
 
 
-    public void OnClickReset()
+    private void Start()
     {
-        Reset();
+        UpdateUI();
     }
 
-    private void Reset()
+
+    public void OnClickReset()
     {
         GameManager.Instance.StartNewGame();
         UpdateUI();
     }
 
+
     public void UpdateUI()
     {
+        // Actualizar textos de puntuación
+        P01.text = $"Jugador 1: {GameManager.Instance.PuntuacionP01}";
+        P02.text = $"Jugador 2: {GameManager.Instance.PuntuacionP02}";
+
+
         if (GameManager.Instance.IsGameOver)
         {
-            // poner ganador o empate
             if (GameManager.Instance.Winner == GameManager.Jugador.Empty)
             {
                 statusText.text = "¡ Empate !";
@@ -36,8 +42,13 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            // informar del turno actual
             statusText.text = $"Turno actual: {GameManager.Instance.CurrentTurn}";
         }
+    }
+
+
+    private void Update()
+    {
+        UpdateUI();
     }
 }

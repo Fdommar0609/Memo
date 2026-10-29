@@ -1,51 +1,66 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class MemoCard : MonoBehaviour
 {
-    private int id;
-    private bool flipped;
-    private bool resuelta;
+    public int id;
+    private bool resuelta = false;
+    private bool flipped = false;
     
     [SerializeField] private Sprite imagenFrontal;
-    [SerializeField] private Sprite imagenBack;
-    
+    [SerializeField] private Sprite imagenTrasera;
+  
     private Image image;
-    private Sprite defaultSprite;
-    
-    
+  
     private void Awake()
     {
         image = GetComponent<Image>();
+        image.sprite = imagenTrasera;
     }
-    
+  
     public void OnClick()
     {
         if (GameManager.Instance.IsGameOver || resuelta || flipped)
         {
             return;
         }
-
-        // Intentar hacer la jugada
-        GameManager.Instance.PlayMove(id);
+      
+        GameManager.Instance.RealizarJugada(this);
     }
 
 
-    public void Refresh()
+    public void GirarCarta(bool mostrarFrontal)
     {
-        if (!resuelta)
-        {
-            image.sprite = imagenBack;
-        }
-        else if(resuelta)
+        flipped = mostrarFrontal;
+        if (mostrarFrontal)
         {
             image.sprite = imagenFrontal;
         }
+        else
+        {
+            image.sprite = imagenTrasera;
+        }
+    }
+    
+    
+    public void MarcarResuelta()
+    {
+        resuelta = true;
     }
 
 
-    private void Update()
+    public void ResetearCarta()
     {
-        Refresh();
+        resuelta = false;
+        flipped = false;
+        image.sprite = imagenTrasera;
+    }
+    
+    public void AsignarImagenes(int nuevoId, Sprite nuevaImagenFrontal)
+    {
+        id = nuevoId;
+        imagenFrontal = nuevaImagenFrontal;
     }
 }
