@@ -173,20 +173,19 @@ public class GameManager : MonoBehaviour
       
        primeraCartaLevantada = null;
        segundaCartaLevantada = null;
-       
-       totalParejas = (filas * columnas) / 2;
-       GenerarTablero();
+
+       int cartasDeseadas = filas * columnas;
+       GenerarTablero(cartasDeseadas);
    }
 
-   private void GenerarTablero()
+   private void GenerarTablero(int cartasTotales)
    {
        foreach (Transform hijo in contenedorCartas)
        {
            Destroy(hijo.gameObject);
        }
        cartasInstanciadas.Clear();
-       
-       
+    
        GridLayoutGroup grid = contenedorCartas.GetComponent<GridLayoutGroup>();
        if (grid != null)
        {
@@ -194,34 +193,43 @@ public class GameManager : MonoBehaviour
            grid.constraintCount = columnas; 
        }
        
-       int cartasTotales = filas * columnas;
+       if (cartasTotales % 2 != 0)
+       {
+           cartasTotales--;
+           Debug.Log("No se puede generar un tablero impar, se ha adaptado para sea par.");
+       }
        
+       int limiteMaximoCartas = spritesFrontales.Length * 2;
+       if (cartasTotales > limiteMaximoCartas)
+       {
+           cartasTotales = limiteMaximoCartas;
+           Debug.Log("Se ha superado el máximo de cartas posibles para poner en el tablero./nSe ha puesto el tablero más grande posible.");
+       }
        
+       totalParejas = cartasTotales / 2;
+    
        List<int> idsDeCartas = new List<int>();
        for(int i = 0; i < cartasTotales; i++)
        {
            idsDeCartas.Add(i / 2);
        }
-       
-       
+    
        for(int i = 0; i < idsDeCartas.Count; i++)
        {
            int temp = idsDeCartas[i];
            int indiceAlAzar = Random.Range(0, idsDeCartas.Count);
-           
-           
+        
            idsDeCartas[i] = idsDeCartas[indiceAlAzar];
            idsDeCartas[indiceAlAzar] = temp;
        }
-       
-       
+    
        for(int i = 0; i < cartasTotales; i++)
        {
            int idDeLaCarta = idsDeCartas[i];
-           
+        
            GameObject nuevaCarta = Instantiate(cartaPrefab, contenedorCartas);
            cartasInstanciadas.Add(nuevaCarta);
-           
+        
            MemoCard carta = nuevaCarta.GetComponent<MemoCard>();
            carta.AsignarImagenes(idDeLaCarta, spritesFrontales[idDeLaCarta]);
        }

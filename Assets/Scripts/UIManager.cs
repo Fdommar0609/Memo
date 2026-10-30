@@ -7,6 +7,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI statusText;
     [SerializeField] private TextMeshProUGUI P01;
     [SerializeField] private TextMeshProUGUI P02;
+    
+    [SerializeField] private GameObject panelGameOver;
+    [SerializeField] private TextMeshProUGUI textoGanadorPanel;
 
 
     private void Start()
@@ -31,17 +34,21 @@ public class UIManager : MonoBehaviour
 
         if (GameManager.Instance.IsGameOver)
         {
+            panelGameOver.SetActive(true);
+            
             if (GameManager.Instance.Winner == GameManager.Jugador.Empty)
             {
-                statusText.text = "¡ Empate !";
+                textoGanadorPanel.text = "¡ Empate !";
             }
             else
             {
-                statusText.text = $"¡ Ganador: {GameManager.Instance.Winner} !";
+                textoGanadorPanel.text = $"¡ Ganador: {GameManager.Instance.Winner} !";
+                statusText.text = "Partida terminada";
             }
         }
         else
         {
+            panelGameOver.SetActive(false);
             statusText.text = $"Turno actual: {GameManager.Instance.CurrentTurn}";
         }
     }
