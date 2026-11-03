@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-   public enum Jugador { Empty, Jugador1, Player2 }
+   public enum Jugador { Empty, Jugador1, Jugador2 }
    public static GameManager Instance { get; private set; }
    public bool IsGameOver { get; private set; }
    public Jugador Winner { get; private set; } = Jugador.Empty;
@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
        segundaCartaLevantada.GirarCarta(false);
 
 
-       CurrentTurn = (CurrentTurn == Jugador.Jugador1) ? Jugador.Player2 : Jugador.Jugador1;
+       CurrentTurn = (CurrentTurn == Jugador.Jugador1) ? Jugador.Jugador2 : Jugador.Jugador1;
       
        primeraCartaLevantada = null;
        segundaCartaLevantada = null;
@@ -151,7 +151,7 @@ public class GameManager : MonoBehaviour
            }
            else if(PuntuacionP02 > PuntuacionP01)
            {
-               Winner = Jugador.Player2;
+               Winner = Jugador.Jugador2;
            }
            else
            {

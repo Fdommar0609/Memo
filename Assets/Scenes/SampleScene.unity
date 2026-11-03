@@ -1945,7 +1945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   contenedorCartas: {fileID: 866811635}
-  cartaPrefab: {fileID: 9002774899750899328, guid: 3c5acb2d4782619499b0df4dc1a95c87, type: 3}
+  cartaPrefab: {fileID: 8383536943868473051, guid: ef3d0c1b09d44d34e97a2aa90df839fe, type: 3}
   spritesFrontales:
   - {fileID: -2322131890765004172, guid: b8c91a46f11e9e7429c0d7ecd0b462b5, type: 3}
   - {fileID: -1789811908115254431, guid: 76aebfcbe3024f346895d2759cffd1f6, type: 3}
@@ -1962,8 +1962,8 @@ MonoBehaviour:
   - {fileID: -6516572600515932451, guid: a1be684fe76dd144a92ac5680f4ceede, type: 3}
   - {fileID: 8269482728541417561, guid: b90dec83ad656334bbb4b42132f6207a, type: 3}
   - {fileID: -6858732020274940862, guid: 3f37f775345416a4796e13d8fa2cf503, type: 3}
-  filas: 9
-  columnas: 9
+  filas: 2
+  columnas: 3
 --- !u!1 &2091745471
 GameObject:
   m_ObjectHideFlags: 0
