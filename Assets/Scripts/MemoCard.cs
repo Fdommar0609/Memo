@@ -13,12 +13,16 @@ public class MemoCard : MonoBehaviour
     [SerializeField] private Sprite imagenTrasera;
   
     [SerializeField] private Image image;
+
+    private Animator _animator;
   
     private void Awake()
     {
         image.sprite = imagenFrontal;
         Image imgTrasera = GetComponent<Image>();
         imgTrasera.sprite = imagenTrasera;
+        
+        _animator = GetComponent<Animator>();
     }
   
     public void OnClick()
@@ -37,12 +41,14 @@ public class MemoCard : MonoBehaviour
         flipped = mostrarFrontal;
         if (mostrarFrontal)
         {
-            image.gameObject.SetActive(true);
+            //image.gameObject.SetActive(true);
+            _animator.SetTrigger("Voltear");
         }
         else
         {
             //image.sprite = imagenTrasera;
-            image.gameObject.SetActive(false);
+            //image.gameObject.SetActive(false);
+            _animator.SetTrigger("Desvoltear");
         }
     }
     
